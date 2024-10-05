@@ -16,6 +16,7 @@ import {
   XMarkIcon,
   MagnifyingGlassIcon,
 } from "@heroicons/react/24/outline";
+import { Activity, House, UserPen, Wallet, MessageSquare } from "lucide-react";
 
 // let Options: string[] = ["Home", "Student Info. Management", "Fee Management", "Attendence"];
 
@@ -69,7 +70,8 @@ export function DefaultSidebar() {
           shadow={false}
           className="h-[calc(100vh-2rem)] w-full p-4"
         >
-          <div className="mb-2 p-4">
+          <div className="mb-2 p-4 flex items-center gap-4">
+            <Activity color="#008e00" strokeWidth={1.8} size={50} />
             <Typography variant="h5" color="blue-gray">
               GuidePilot
             </Typography>
@@ -89,7 +91,18 @@ export function DefaultSidebar() {
               <Link href={`/${option.link}`} key={option.label}>
                 <ListItem>
                   <ListItemPrefix>
-                    <PresentationChartBarIcon className="h-5 w-5" />
+                    {option.link === "Home" && (
+                      <House color="#212121" strokeWidth={1.5} />
+                    )}
+                    {option.link === "SIM" && (
+                      <UserPen color="#212121" strokeWidth={1.5} />
+                    )}
+                    {option.link === "FM" && (
+                      <Wallet color="#212121" strokeWidth={1.5} />
+                    )}
+                    {option.link === "FSR" && (
+                      <MessageSquare color="#212121" strokeWidth={1.5} />
+                    )}
                   </ListItemPrefix>
                   {option.label}
                 </ListItem>
